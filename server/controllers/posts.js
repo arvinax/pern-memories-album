@@ -22,6 +22,8 @@ export const createPost = async (req, res) => {
       creator: post.creator,
       selectedFile: post.selectedFile,
       tags: post.tags,
+      likeCount: post.likeCount,
+      createdAt: post.createdAt,
     },
   });
   try {
