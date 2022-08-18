@@ -32,3 +32,13 @@ export const createPost = async (req, res) => {
     res.status(409).json({ message: error.message });
   }
 };
+
+// get single post
+export const getPost = async (req, res) => {
+  const { id } = req.body;
+  const post = await prisma.posts.findUnique({
+    where: {
+      id: id,
+    },
+  });
+};
