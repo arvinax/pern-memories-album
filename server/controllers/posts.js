@@ -36,9 +36,30 @@ export const createPost = async (req, res) => {
 // get single post
 export const getPost = async (req, res) => {
   const { id } = req.body;
-  const post = await prisma.posts.findUnique({
-    where: {
-      id: id,
-    },
-  });
+  try {
+    const post = await prisma.posts.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(409).json({ message: error.message });
+  }
+};
+
+// delete post
+export const deletePost = async (req, res) => {
+  const { id } = req.body;
+
+  try {
+    const deletePost = await prisma.posts.delete({
+      where: {
+        id: id,
+      },
+    });
+    res.json(deletePost);
+  } catch (error) {
+    res.status(409).json({ message: error.message });
+  }
 };
