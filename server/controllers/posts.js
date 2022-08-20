@@ -1,6 +1,5 @@
 import PostMessage from '../models/postMessage.js';
 import prisma from '../prisma/client.js';
-
 // get all posts
 export const getPosts = async (req, res) => {
   try {
@@ -62,4 +61,9 @@ export const deletePost = async (req, res) => {
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
+};
+
+export const updatePost = async (req, res) => {
+  try {
+  } catch (error) {}
 };
