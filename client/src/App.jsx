@@ -32,8 +32,8 @@ const App = () => {
         <Container>
           <Grid
             container
-            justify={'space-between'}
-            alignItems={'scretch'}
+            justifyContent={'space-between'}
+            alignItems={'flex-start'}
             spaceing={3}
           >
             <Grid item xs={12} sm={7}>

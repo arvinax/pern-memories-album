@@ -2,6 +2,7 @@ import React from 'react';
 import Post from './Post/Post';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
+import { fetchPosts } from '../../api';
 
 const Posts = () => {
   const posts = useSelector((state) => state.posts);
@@ -10,9 +11,9 @@ const Posts = () => {
   console.log(posts);
   return (
     <>
-      <Post />
-      <Post />
-      <Post />
+      {posts.map((post, index) => (
+        <Post key={index} post={post} />
+      ))}
     </>
   );
 };
