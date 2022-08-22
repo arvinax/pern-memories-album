@@ -63,7 +63,18 @@ export const deletePost = async (req, res) => {
   }
 };
 
+//update popsts
 export const updatePost = async (req, res) => {
+  const { id } = req.body;
+
   try {
+    const updatePost = await prisma.posts.update({
+      where: {
+        id: id,
+      },
+      data: {
+        desc,
+      },
+    });
   } catch (error) {}
 };
