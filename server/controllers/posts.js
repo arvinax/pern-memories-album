@@ -66,6 +66,7 @@ export const deletePost = async (req, res) => {
 //update popsts
 export const updatePost = async (req, res) => {
   const { id } = req.body;
+  const post = req.body;
 
   try {
     const updatePost = await prisma.posts.update({
@@ -73,7 +74,13 @@ export const updatePost = async (req, res) => {
         id: id,
       },
       data: {
-        desc,
+        title: post.title,
+        message: post.message,
+        creator: post.creator,
+        selectedFile: post.selectedFile,
+        tags: post.tags,
+        likeCount: post.likeCount,
+        createdAt: post.createdAt,
       },
     });
   } catch (error) {}
