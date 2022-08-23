@@ -17,3 +17,14 @@ export const createPost = (post) => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const deletePost = (id) => async (dispatch) => {
+  try {
+    console.log('in delete action', id);
+    const deleteposty = await api.deletePost(id);
+    dispatch({ type: 'DELETE', payload: id });
+    console.log('deleteposty: ', deleteposty);
+  } catch (error) {
+    console.log(error.message);
+  }
+};

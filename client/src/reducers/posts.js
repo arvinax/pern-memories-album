@@ -4,6 +4,8 @@ export default (posts = [], action) => {
       return [...posts, action.payload];
     case 'FETCH_ALL':
       return action.payload;
+    case 'DELETE':
+      return posts.filter((post) => post.id !== action.payload);
     default:
       return [];
   }
